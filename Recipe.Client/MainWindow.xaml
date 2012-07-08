@@ -1,0 +1,33 @@
+﻿<Window x:Class="Recipes.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="My Recipe Collection" Height="350" Width="525">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="AddRecipe" Content="Add New Recipe" Command="{Binding AddNewRecipeCommand}"/>
+            <Button x:Name="Reload" Content="Reload Recipes" Command="{Binding ReloadCommand}"/>
+        </StackPanel>
+        <TextBlock Text="Recipes" Grid.Row="2" FontSize="16"/>
+        <DataGrid x:Name="Recipes" ItemsSource="{Binding Recipes}" Grid.Row="3" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Submit" Command="{Binding SubmitCommand}" Width="50" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding RecipeStatus}" Header="Status" MinWidth="80"/>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Title" MinWidth="100"/>
+                <DataGridTextColumn Binding="{Binding Instructions}" Header="Instructions" Width="200" />
+            </DataGrid.Columns> 
+        </DataGrid>
+    </Grid>
+</Window>

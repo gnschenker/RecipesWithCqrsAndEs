@@ -1,0 +1,30 @@
+﻿<Window x:Class="Recipes.Client.RecipeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Recipe" Height="250" Width="400" >
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Add a new recipe to the collection" Grid.ColumnSpan="3" FontSize="18"/>
+        <TextBlock Text="Title" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
+        <TextBox x:Name="RecipeTitle" Text="{Binding Title}" Grid.Row="2" Grid.Column="2" TabIndex="0"/>
+        <TextBlock Text="Cooking Instructions" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Instructions" Text="{Binding Instructions}" TabIndex="1" 
+                 Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+            <Button x:Name="Cancel" Command="{Binding CancelCommand}" Content="Cancel" TabIndex="2" Width="50" IsCancel="True"/>
+            <Button x:Name="Save" Command="{Binding SaveCommand}" Content="Save" Margin="5 0 0 0" TabIndex="3" Width="50" IsDefault="True" />
+        </StackPanel>
+    </Grid>
+</Window>

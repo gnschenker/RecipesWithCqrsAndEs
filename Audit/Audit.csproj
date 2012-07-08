@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BC973EC1-80D2-4F06-A078-0A7E44E3AE8C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Audit</RootNamespace>
+    <AssemblyName>Sample.Audit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Shelfcheck.Audit.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Shelfcheck.Audit.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lokad.Cqrs.Portable, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Lokad.Cqrs.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\Library\ServiceStack\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Util\NodeExtensions.cs" />
+    <Compile Include="Util\DomainQueryManager.cs" />
+    <Compile Include="Views\DomainScanner.cs" />
+    <Compile Include="Views\ModifyMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModifyMessage.Designer.cs">
+      <DependentUpon>ModifyMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\CommonColors.cs" />
+    <Compile Include="Views\DomainLogView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DomainLogView.Designer.cs">
+      <DependentUpon>DomainLogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoadSettingsForm.Designer.cs">
+      <DependentUpon>LoadSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DomainAwareAnalysis.cs" />
+    <Compile Include="Util\DomainLogDisplayItem.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Util\LocalEventStore.cs" />
+    <Compile Include="Util\ShellServices.cs" />
+    <Compile Include="Views\RepopulateView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\RepopulateView.Designer.cs">
+      <DependentUpon>RepopulateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewMapInfo.cs" />
+    <Compile Include="Views\ViewsNode.cs" />
+    <EmbeddedResource Include="Views\DomainLogView.resx">
+      <DependentUpon>DomainLogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadSettingsForm.resx">
+      <DependentUpon>LoadSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModifyMessage.resx">
+      <DependentUpon>ModifyMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\RepopulateView.resx">
+      <DependentUpon>RepopulateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.markdown" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Recipe.Contracts\Recipes.Contracts.csproj">
+      <Project>{93F0421A-97A1-42D2-A219-D8A113E7C97D}</Project>
+      <Name>Recipes.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Recipe.Projections\Recipes.Projections.csproj">
+      <Project>{8C63C3C5-06EA-48CE-805B-5F6519792C11}</Project>
+      <Name>Recipes.Projections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Recipes.Wires\Recipes.Wires.csproj">
+      <Project>{693B3505-63B7-4D73-9A52-50F62BCA0B72}</Project>
+      <Name>Recipes.Wires</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
